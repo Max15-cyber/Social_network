@@ -1,19 +1,16 @@
-import logo from './logo.svg';
 import './App.scss';
+import Header from './components/Header/Header';
+import Navbar from './components/Navbar/Navbar';
+import Main from './components/Main/Main';
 
 function App() {
   return (
     <div className="App">
-      <header>
-        <nav>
-          <ul class='menu'>
-            <li><a href="#">Новости</a></li>
-            <li><a href="#">Контакты</a></li>
-            <li><a href="#">Блог</a></li>
-            <li><a href="#">Бизнес</a></li>
-          </ul>
-        </nav>
-      </header>
+      <div className='container content'>
+        <Header />
+        <Navbar />
+        <Main />
+      </div>
     </div>
   );
 }
