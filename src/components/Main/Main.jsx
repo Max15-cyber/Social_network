@@ -1,33 +1,19 @@
-import { NavLink } from "react-router-dom"
+import { NavLink, Route, Routes} from "react-router-dom";
+import Home from "./Home/Home";
+import Profile from "./Profile/Profile";
+import Chat from "./Chat/Chat";
 
 const Main = () => {
     return (
         <main className="main">
-            <div className="user">
-                <span className="user__name">Petya Ivanov</span>
-                <span className="age">27 years</span>
-                <button className="IsFollow">Follow</button>
-                <button className="open_profile">Open profile</button>
-            </div>
-            <div className="user">
-                <span className="user__name">Petya Ivanov</span>
-                <span className="age">27 years</span>
-                <button className="IsFollow">Follow</button>
-                <button className="open_profile">Open profile</button>
-            </div>
-            <div className="user">
-                <span className="user__name">Petya Ivanov</span>
-                <span className="age">27 years</span>
-                <button className="IsFollow">Follow</button>
-                <button className="open_profile">Open profile</button>
-            </div>
-            <div className="user">
-                <span className="user__name">Petya Ivanov</span>
-                <span className="age">27 years</span>
-                <button className="IsFollow">Follow</button>
-                <button className="open_profile">Open profile</button>
-            </div>
+            <Routes>
+                <Route path='/' element={<Home />} />
+                <Route path='home' element={<Home />} />
+                <Route path='profile/*' element={<Profile />} />
+                <Route path='chat' element={<Chat />} />
+            </Routes>
         </main>
+
     )
 }
 
