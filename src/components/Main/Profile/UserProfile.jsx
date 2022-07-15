@@ -57,9 +57,6 @@ const UserProfile = (props) => {
             .then(() => props.deletePost(id));
 
     }
-
-
-    let a = 'hi'
     const posts = props.posts.map((post) => {
         const body = post.body[0].toUpperCase() + post.body.slice(1)
         return <Post key={post.id} id={post.id} post={body} deletePost={deletePost}></Post>
