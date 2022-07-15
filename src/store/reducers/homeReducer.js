@@ -1,17 +1,34 @@
+const GET_USERS = 'get users'
+const FOLLOW = 'follow'
+
 const initialState = {
-    users: [
-        { name: 'Ivan', follow: true, id: 0, },
-        { name: 'Masha', follow: true, id: 1, },
-        { name: 'Petya', follow: false, id: 2, },
-        { name: 'Kirill', follow: false, id: 3, },
-        { name: 'Lera', follow: true, id: 4, },
-        { name: 'Jack', follow: false, id: 5, },
-        { name: 'Pete', follow: false, id: 6, },
-    ],
+    users: [],
 };
 
 const homeReducer = (state = initialState, action) => {
-    return state;
+    switch (action.type) {
+        case GET_USERS:
+            return { ...state, users: [...state.users, ...action.users] }
+        case FOLLOW:
+            return {
+                ...state,
+                users: state.users.map((user) => {
+                    if (user.id === action.id) {
+                        return {
+                            ...user,
+                            followed: action.followed,
+                        }
+                    } else {
+                        return user
+                    }
+                })
+            }
+        default:
+            return state
+    }
 }
+
+export const getUsers = (users) => ({ type: GET_USERS, users })
+export const follow = (id, followed) => ({ type: FOLLOW, id, followed })
 
 export default homeReducer;

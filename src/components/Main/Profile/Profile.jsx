@@ -1,8 +1,12 @@
-import { NavLink } from "react-router-dom"
+import { Route, Routes } from "react-router-dom"
+import UserProfile from "./UserProfile";
 
-const Profile = () => {
-    return(
-        <h3>Profile</h3>
+const Profile = (props) => {
+    return (
+        <Routes>
+            <Route path='/' element={<UserProfile {...props} />} />           
+            <Route path=':id' element={<UserProfile {...props} />} />
+        </Routes>
     )
 }
 
